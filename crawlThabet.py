@@ -41,9 +41,10 @@ browser.find_element(by=By.XPATH, value="/html/body/form/div[3]/div[2]/div[4]/di
 sleep(2)
 
 # Xử lý popUp và click vào xem kết quả
+browser.close()
 handles = []
 handles = browser.window_handles
-browser.switch_to.window(handles[1])
+browser.switch_to.window(handles[0])
 sleep(7)
 browser.find_element(by=By.XPATH, value="/html/body/form/div[8]/div[1]/div/ul/li[2]/a").click()
 browser.close()
@@ -51,7 +52,7 @@ sleep(3)
 
 # Xử lý popUp và click chọn xem 18 lô tô bét
 handles = browser.window_handles
-browser.switch_to.window(handles[1])
+browser.switch_to.window(handles[0])
 sleep(3)
 browser.find_element(by=By.ID, value="divLeftMenu_221").click()
 sleep(3)
@@ -82,6 +83,14 @@ for ky in list_Ky:
         ghi.write(str(dacBiet.text) + "\n")
 
 browser.close()
+ghi.close()
+
+
+# Xử lý số liệu và ghi ra kết quả cuối cùng
+import lamSach
+ghi = open("D:/Ku/2.0/2.10/duLieu/" + toDay[0] + ".txt", 'w')
+for x in lamSach.xuLy(toDay[0]):
+    ghi.write(x)
 ghi.close()
 
 
