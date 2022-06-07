@@ -1,5 +1,6 @@
 import os
 import numpy as np
+import pandas as pd
 
 src = 'D:/Ku/2.0/2.10/duLieu'
 # 1. Lấy danh sách tên file
